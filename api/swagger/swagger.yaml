@@ -13,7 +13,7 @@ produces:
 paths:
   '/':
     get:
-      description: '---'
+      description: 'Get data request'
       operationId: GetRequest
       responses:
         '200':
@@ -21,12 +21,12 @@ paths:
           schema:
             "$ref": "#/definitions/Get"
     post:
-      description: '---'
+      description: 'Post element request'
       operationId: PostRequest
       parameters:
-        - name: city
+        - name: text
           in: query
-          description: City name
+          description: Text for saving in db
           type: string
       responses:
         '201':
@@ -38,12 +38,12 @@ paths:
           schema:
             "$ref": "#/definitions/ErrorPost"
     put:
-      description: '---'
+      description: 'Update element request'
       operationId: PutRequest
       parameters:
-        - name: city
+        - name: text
           in: query
-          description: City name
+          description: Text for updating in db
           type: string
       responses:
         '201':
@@ -55,12 +55,12 @@ paths:
           schema:
             "$ref": "#/definitions/ErrorPut"
     delete:
-      description: '---'
+      description: 'Delete element request'
       operationId: DeleteRequest
       parameters:
-        - name: city
+        - name: id
           in: query
-          description: City name
+          description: Element Id for deleting from db
           type: string
       responses:
         '201':
@@ -73,49 +73,49 @@ paths:
             "$ref": "#/definitions/ErrorDelete"
 definitions:
   Get:
-    title: Non Successful Response
+    title: Request was success (it's success in all cases)
     type: object
     properties:
       message:
         type: string
         description: ''  
   SuccessPost:
-    title: Non Successful Response
+    title: Request was success
     type: object
     properties:
       message:
         type: string
         description: '' 
   ErrorPost:
-    title: Non Successful Response
+    title: Request was with error (it can be DB error or Data error)
     type: object
     properties:
       message:
         type: string
         description: ''
   SuccessPut:
-    title: Non Successful Response
+    title: Data updating was success
     type: object
     properties:
       message:
         type: string
         description: '' 
   ErrorPut:
-    title: Non Successful Response
+    title: Request was with error (it can be DB error or Data error)
     type: object
     properties:
       message:
         type: string
         description: '' 
   SuccessDelete:
-    title: Non Successful Response
+    title: Data deleting was success
     type: object
     properties:
       message:
         type: string
         description: '' 
   ErrorDelete:
-    title: Non Successful Response
+    title: Request was with error (it can be DB error or Data error)
     type: object
     properties:
       message:

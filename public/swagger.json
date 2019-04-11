@@ -1,0 +1,184 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "Test task API"
+	},
+	"host": "localhost:3000",
+	"basePath": "/",
+	"schemes": [
+		"http"
+	],
+	"consumes": [
+		"application/x-www-form-urlencoded"
+	],
+	"produces": [
+		"application/x-www-form-urlencoded"
+	],
+	"paths": {
+		"/": {
+			"get": {
+				"description": "Get data request",
+				"operationId": "GetRequest",
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/Get"
+						}
+					}
+				}
+			},
+			"post": {
+				"description": "Post element request",
+				"operationId": "PostRequest",
+				"parameters": [
+					{
+						"name": "text",
+						"in": "query",
+						"description": "Text for saving in db",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/SuccessPost"
+						}
+					},
+					"400": {
+						"description": "Error",
+						"schema": {
+							"$ref": "#/definitions/ErrorPost"
+						}
+					}
+				}
+			},
+			"put": {
+				"description": "Update element request",
+				"operationId": "PutRequest",
+				"parameters": [
+					{
+						"name": "text",
+						"in": "query",
+						"description": "Text for updating in db",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/SuccessPut"
+						}
+					},
+					"400": {
+						"description": "Error",
+						"schema": {
+							"$ref": "#/definitions/ErrorPut"
+						}
+					}
+				}
+			},
+			"delete": {
+				"description": "Delete element request",
+				"operationId": "DeleteRequest",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "Element Id for deleting from db",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/SuccessDelete"
+						}
+					},
+					"400": {
+						"description": "Error",
+						"schema": {
+							"$ref": "#/definitions/ErrorDelete"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"Get": {
+			"title": "Request was success (it's success in all cases)",
+			"type": "object",
+			"properties": {
+				"message": {
+					"type": "string",
+					"description": ""
+				}
+			}
+		},
+		"SuccessPost": {
+			"title": "Request was success",
+			"type": "object",
+			"properties": {
+				"message": {
+					"type": "string",
+					"description": ""
+				}
+			}
+		},
+		"ErrorPost": {
+			"title": "Request was with error (it can be DB error or Data error)",
+			"type": "object",
+			"properties": {
+				"message": {
+					"type": "string",
+					"description": ""
+				}
+			}
+		},
+		"SuccessPut": {
+			"title": "Data updating was success",
+			"type": "object",
+			"properties": {
+				"message": {
+					"type": "string",
+					"description": ""
+				}
+			}
+		},
+		"ErrorPut": {
+			"title": "Request was with error (it can be DB error or Data error)",
+			"type": "object",
+			"properties": {
+				"message": {
+					"type": "string",
+					"description": ""
+				}
+			}
+		},
+		"SuccessDelete": {
+			"title": "Data deleting was success",
+			"type": "object",
+			"properties": {
+				"message": {
+					"type": "string",
+					"description": ""
+				}
+			}
+		},
+		"ErrorDelete": {
+			"title": "Request was with error (it can be DB error or Data error)",
+			"type": "object",
+			"properties": {
+				"message": {
+					"type": "string",
+					"description": ""
+				}
+			}
+		}
+	}
+}

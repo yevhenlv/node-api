@@ -1,5 +1,5 @@
 import { Text } from '../models/text';
-var log = require('./libs/log')(module);
+var log = require('../libs/log')(module);
 
 exports.get = (req, res) => {
   Text.find({}, function (err, texts) {
