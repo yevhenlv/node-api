@@ -1,0 +1,61 @@
+
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"message":"Not Found","level":"error"}
+{"level":"error"}
+{"expose":true,"statusCode":400,"status":400,"body":"{\n\ttext: text_1\n}","type":"entity.parse.failed","level":"error"}
+{"expose":true,"statusCode":400,"status":400,"body":"{\n\ttext: text_1\n}","type":"entity.parse.failed","level":"error"}
+{"expose":true,"statusCode":400,"status":400,"body":"{\n\ttext: text_1\n}","type":"entity.parse.failed","level":"error"}
+{"expose":true,"statusCode":400,"status":400,"body":"{\n\ttext: text_1\n}","type":"entity.parse.failed","level":"error"}
+{"expose":true,"statusCode":400,"status":400,"body":"{\n\ttext: text_1\n}","type":"entity.parse.failed","level":"error"}
+{"expose":true,"statusCode":400,"status":400,"body":"{\n\ttext: text_1\n}","type":"entity.parse.failed","level":"error"}
+{"expose":true,"statusCode":400,"status":400,"body":"{text: text_1}","type":"entity.parse.failed","level":"error"}
+{"expose":true,"statusCode":400,"status":400,"body":"{text: 'text_1'}","type":"entity.parse.failed","level":"error"}
+{"expose":true,"statusCode":400,"status":400,"body":"{text: 'text_1'}","type":"entity.parse.failed","level":"error"}
+{"expose":true,"statusCode":400,"status":400,"body":"{text: 'text_1'}","type":"entity.parse.failed","level":"error"}
+{"expose":true,"statusCode":400,"status":400,"body":"{text: 'text_1'}","type":"entity.parse.failed","level":"error"}
+{"expose":true,"statusCode":400,"status":400,"body":"{text: 'text_1'}","type":"entity.parse.failed","level":"error"}
+{"expose":true,"statusCode":400,"status":400,"body":"{text: 'text_1'}","type":"entity.parse.failed","level":"error"}
+{"expose":true,"statusCode":400,"status":400,"body":"{text: 'text_1'}","type":"entity.parse.failed","level":"error"}
+{"command":"SET","args":["../redis-cache/data",3600,"{\"id\":1554986706646,\"text\":\"text_1\"}"],"code":"ERR","level":"error"}
+{"command":"SET","args":["../redis-cache/data",3600,"{\"id\":1554986731007,\"text\":\"text_3\"}"],"code":"ERR","level":"error"}
+{"command":"HMSET","args":["../redis-cache/data",3600,"1554986761093",{"text":"text_TEXT"}],"code":"ERR","level":"error"}
+{"command":"SETEX","args":["{\"id\":1554986877998,\"text\":\"text_TEXT\"}"],"code":"ERR","level":"error"}
+{"command":"SET","args":["{\"id\":1554986965536,\"text\":\"text_TEXT\"}"],"code":"ERR","level":"error"}
+{"command":"SET","args":["{\"id\":1554986998802,\"text\":\"text_TEXT\"}"],"code":"ERR","level":"error"}
+{"command":"HSET","args":["{\"id\":1554987135681,\"text\":\"text_TEXT\"}"],"code":"ERR","level":"error"}
+{"command":"HSET","args":["../redis-cache/data","{\"id\":1554987179527,\"text\":\"text_TEXT\"}"],"code":"ERR","level":"error"}
+{"command":"LPUSH","args":["../redis-cache/data","{\"id\":1554987248871,\"text\":\"text_TEXT\"}"],"code":"WRONGTYPE","level":"error"}
+{"command":"LSET","args":["../redis-cache/data","{\"id\":1554987374638,\"text\":\"text_TEXT\"}"],"code":"ERR","level":"error"}
+{"command":"SADD","args":["../redis-cache/data","{\"id\":1554987608991,\"text\":\"text_TEXT!!!!!\"}"],"code":"WRONGTYPE","level":"error"}
+{"command":"LPUSH","args":["../redis-cache/data","{\"id\":1554987757050,\"text\":\"text_TEXT!!!!!\"}"],"code":"WRONGTYPE","level":"error"}
+{"command":"SADD","args":["../redis-cache/data","{\"id\":1554987817424,\"text\":\"text_TEXT!!!!!\"}"],"code":"WRONGTYPE","level":"error"}
+{"command":"SADD","args":["../redis-cache/data","{\"id\":1554987870044,\"text\":\"text_TEXT!!!!!\"}"],"code":"WRONGTYPE","level":"error"}
+{"command":"LPUSH","args":["../redis-cache/data","{\"id\":1554987886075,\"text\":\"text_TEXT!!!!!\"}"],"code":"WRONGTYPE","level":"error"}
+{"command":"LPUSH","args":["../redis-cache/data","{\"id\":1554987995572,\"text\":\"TEEEXT\"}"],"code":"WRONGTYPE","level":"error"}
+{"command":"RPUSH","args":["../redis-cache/data","{\"id\":1554988215805,\"text\":\"!!!\"}"],"code":"WRONGTYPE","level":"error"}
+{"command":"RPUSHX","args":["../redis-cache/data","{\"id\":1554988307922,\"text\":\"!!!\"}"],"code":"WRONGTYPE","level":"error"}
+{"command":"RPUSHX","args":["../redis-cache/data","{\"id\":1554988866476,\"text\":\"!!!\"}"],"code":"WRONGTYPE","level":"error"}
+{"command":"RPUSHX","args":["../redis-cache/data","{\"id\":1554988891705,\"text\":\"!!!\"}"],"code":"WRONGTYPE","level":"error"}
+{"command":"HMSET","args":["../redis-cache/test-data","{\"id\":1554989660115,\"text\":\"!!!\"}"],"code":"ERR","level":"error"}
+{"level":"error"}
+{"command":"RPUSH","args":["../redis-cache/test-data","../redis-cache/test-data","{\"id\":1554989904367,\"text\":\"!!!\"}"],"code":"WRONGTYPE","level":"error"}
+{"command":"RPUSH","args":["../redis-cache/test-data","{\"id\":1554990012380,\"text\":\"!!!\"}"],"code":"WRONGTYPE","level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
