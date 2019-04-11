@@ -1,0 +1,124 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: Test task API
+host: localhost:3000
+basePath: /
+schemes:
+- http
+consumes:
+- application/x-www-form-urlencoded
+produces:
+- application/x-www-form-urlencoded
+paths:
+  '/':
+    get:
+      description: '---'
+      operationId: GetRequest
+      responses:
+        '200':
+          description: Success
+          schema:
+            "$ref": "#/definitions/Get"
+    post:
+      description: '---'
+      operationId: PostRequest
+      parameters:
+        - name: city
+          in: query
+          description: City name
+          type: string
+      responses:
+        '201':
+          description: Success
+          schema:
+            "$ref": "#/definitions/SuccessPost"
+        '400':
+          description: Error
+          schema:
+            "$ref": "#/definitions/ErrorPost"
+    put:
+      description: '---'
+      operationId: PutRequest
+      parameters:
+        - name: city
+          in: query
+          description: City name
+          type: string
+      responses:
+        '201':
+          description: Success
+          schema:
+            "$ref": "#/definitions/SuccessPut"
+        '400':
+          description: Error
+          schema:
+            "$ref": "#/definitions/ErrorPut"
+    delete:
+      description: '---'
+      operationId: DeleteRequest
+      parameters:
+        - name: city
+          in: query
+          description: City name
+          type: string
+      responses:
+        '201':
+          description: Success
+          schema:
+            "$ref": "#/definitions/SuccessDelete"
+        '400':
+          description: Error
+          schema:
+            "$ref": "#/definitions/ErrorDelete"
+definitions:
+  Get:
+    title: Non Successful Response
+    type: object
+    properties:
+      message:
+        type: string
+        description: ''  
+  SuccessPost:
+    title: Non Successful Response
+    type: object
+    properties:
+      message:
+        type: string
+        description: '' 
+  ErrorPost:
+    title: Non Successful Response
+    type: object
+    properties:
+      message:
+        type: string
+        description: ''
+  SuccessPut:
+    title: Non Successful Response
+    type: object
+    properties:
+      message:
+        type: string
+        description: '' 
+  ErrorPut:
+    title: Non Successful Response
+    type: object
+    properties:
+      message:
+        type: string
+        description: '' 
+  SuccessDelete:
+    title: Non Successful Response
+    type: object
+    properties:
+      message:
+        type: string
+        description: '' 
+  ErrorDelete:
+    title: Non Successful Response
+    type: object
+    properties:
+      message:
+        type: string
+        description: ''    
+            

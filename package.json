@@ -19,6 +19,7 @@
     "mongoose": "^5.5.0",
     "morgan": "^1.9.1",
     "redis": "^2.8.0",
+    "swagger-ui": "^3.22.0",
     "winston": "^3.2.1"
   }
 }

@@ -56,11 +56,7 @@ const setError = action => {
     'db': 'Error in request'
   };
 
-  if (action === 'db') {
-    log.error(error[action]);
-    res.status(400).json({ message: error[action] });
-  }
-  
+  if (action === 'db') log.error(error[action]);  
 
   return res.status(400).json({ message: error[action] });
 }
