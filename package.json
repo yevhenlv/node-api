@@ -1,5 +1,5 @@
 {
-  "name": "eloshkarev-fr-07",
+  "name": "api-node-test",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,6 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.3.1",
-    "body-parser": "^1.18.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",

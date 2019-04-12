@@ -11,7 +11,7 @@ consumes:
 produces:
 - application/x-www-form-urlencoded
 paths:
-  '/':
+  '/data':
     get:
       description: 'Get data request'
       operationId: GetRequest
@@ -41,7 +41,7 @@ paths:
       description: 'Update element request'
       operationId: PutRequest
       parameters:
-        - name: text
+        - name: id
           in: query
           description: Text for updating in db
           type: string

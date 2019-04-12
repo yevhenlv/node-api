@@ -11,9 +11,9 @@ exports.get = (req, res) => {
 }
 
 exports.post = (req, res) => {
-  if (!checkData(req.body, 'text')) return setError('post');
+  if (!checkData(req.query, 'text')) return setError('post');
 
-  const newText = new Text({ text: req.body.text });
+  const newText = new Text({ text: req.query.text });
 
   newText.save((err) => {
     if (err) return setError('db');
@@ -23,9 +23,9 @@ exports.post = (req, res) => {
 }
 
 exports.put = (req, res) => {
-  if (!req.body.id) return setError('put');
+  if (!req.query.id) return setError('put');
 
-  Text.updateOne({_id: req.body.id}, { text: req.body.text }, (err) => {
+  Text.updateOne({_id: req.query.id}, { text: req.query.text }, (err) => {
       if(err) return setError('db');
 
       res.status(201).json({ message: 'Updated' });
@@ -34,9 +34,9 @@ exports.put = (req, res) => {
 }
 
 exports.delete = (req, res) => {
-  if (!checkData(req.body, 'id')) return setError('delete');
+  if (!checkData(req.query, 'id')) return setError('delete');
 
-  Text.deleteOne({_id: req.body.id}, (err) => {
+  Text.deleteOne({_id: req.query.id}, (err) => {
       if (err) return setError('db');
 
       res.status(201).json({ message: 'Removed' });

@@ -16,7 +16,7 @@
 		"application/x-www-form-urlencoded"
 	],
 	"paths": {
-		"/": {
+		"/data": {
 			"get": {
 				"description": "Get data request",
 				"operationId": "GetRequest",
@@ -59,6 +59,12 @@
 				"description": "Update element request",
 				"operationId": "PutRequest",
 				"parameters": [
+          {
+						"name": "id",
+						"in": "query",
+						"description": "Id for updating in db",
+						"type": "string"
+					},
 					{
 						"name": "text",
 						"in": "query",

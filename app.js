@@ -3,12 +3,12 @@ require('@babel/register')({
   plugins: [ '@babel/plugin-transform-runtime' ]
 });
 
+var path = require('path');
 var routes = require('./routes');
 var createError = require('http-errors');
 var express = require('express');
 var httpLogger = require('morgan');
 var log = require('./libs/log')(module);
-var bodyParser = require('body-parser');
 var mongoose = require('./libs/mongoose');
 
 var app = express();
@@ -17,7 +17,7 @@ var app = express();
 app.use(httpLogger('dev'));
 
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
