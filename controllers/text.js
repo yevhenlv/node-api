@@ -1,4 +1,4 @@
-import { Text } from '../models/text';
+import Text from '../models/text';
 var log = require('../libs/log')(module);
 
 exports.get = (req, res) => {
@@ -11,22 +11,22 @@ exports.get = (req, res) => {
 }
 
 exports.post = (req, res) => {
-  if (!checkData(req.query, 'text')) return setError('post');
+  if (!checkData(req.query, 'text')) return setError('post', res);
 
   const newText = new Text({ text: req.query.text });
 
   newText.save((err) => {
-    if (err) return setError('db');
+    if (err) return setError('db', res);
 
     res.status(201).json({ message: 'Added' });
   });  
 }
 
 exports.put = (req, res) => {
-  if (!req.query.id) return setError('put');
+  if (!req.query.id) return setError('put', res);
 
   Text.updateOne({_id: req.query.id}, { text: req.query.text }, (err) => {
-      if(err) return setError('db');
+      if(err) return setError('db', res);
 
       res.status(201).json({ message: 'Updated' });
     }
@@ -34,10 +34,10 @@ exports.put = (req, res) => {
 }
 
 exports.delete = (req, res) => {
-  if (!checkData(req.query, 'id')) return setError('delete');
+  if (!checkData(req.query, 'id')) return setError('delete', res);
 
   Text.deleteOne({_id: req.query.id}, (err) => {
-      if (err) return setError('db');
+      if (err) return setError('db', res);
 
       res.status(201).json({ message: 'Removed' });
     }
@@ -48,7 +48,7 @@ const checkData = (data, param) => {
   return param in data;
 }
 
-const setError = action => {
+const setError = (action, res) => {
   const error = {
     'delete': 'Can\'t delete without id',
     'put': 'Can\'t update without id',
@@ -56,7 +56,7 @@ const setError = action => {
     'db': 'Error in request'
   };
 
-  if (action === 'db') log.error(error[action]);  
-
-  return res.status(400).json({ message: error[action] });
+  if (action === 'db') log.error(error[action]); 
+  
+  return res.status(400).json({ error: error[action] });
 }

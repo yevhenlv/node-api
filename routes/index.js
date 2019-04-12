@@ -1,5 +1,5 @@
 const set = app => {
-  const controller = require('../controllers');
+  const controller = require('../controllers/text');
 
   app.get('/data', controller.get);
   app.post('/data', controller.post);

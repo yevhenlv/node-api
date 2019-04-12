@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "swagger": "swagger project edit"
+    "swagger": "swagger project edit",
+    "test": "mocha --timeout 10000 --exit"
   },
   "dependencies": {
     "@babel/core": "^7.3.3",
@@ -21,5 +22,10 @@
     "redis": "^2.8.0",
     "swagger-ui": "^3.22.0",
     "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^6.1.3"
   }
 }

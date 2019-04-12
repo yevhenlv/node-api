@@ -9,4 +9,4 @@ var schema = new Schema({
   }
 });
 
-exports.Text = mongoose.model('Text', schema);
+module.exports = mongoose.model('Text', schema);

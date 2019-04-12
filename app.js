@@ -27,7 +27,7 @@ app.use(function(req, res, next) {
 });
 
 /* imported modules */
-mongoose.connect();
+mongoose.connect(process.env.NODE_ENV === 'test' ? 'mongodb://localhost:27017/texts-test' : 'mongodb://localhost:27017/texts');
 routes.set(app);
 
 /* errors handlers */

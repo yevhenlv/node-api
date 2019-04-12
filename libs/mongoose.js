@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 var log = require('./log')(module);
 
-const connect = _ => {
+const connect = url => {
   mongoose.connect(
-    'mongodb://localhost:27017/texts',
+    url,
     { useNewUrlParser: true, auto_reconnect: true },
     function() {
       // mongoose.connection.db.dropDatabase();
@@ -19,7 +19,7 @@ const connect = _ => {
     log.error('MongoDb disconnected.');
 
     mongoose.connect(
-      'mongodb://localhost:27017/texts',
+      url,
       { useNewUrlParser: true, auto_reconnect: true }
     );
   });
