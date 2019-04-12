@@ -6,7 +6,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const app = require('../app');
 
-const should = chai.should();
+chai.should();
 chai.use(chaiHttp);
 
 describe('Texts', () => {
@@ -55,7 +55,7 @@ describe('Texts', () => {
     it('it should not UPDATE an exist text', () => {
       const text = new Text({ text: 'Text for update' });
 
-      text.save(async (err, text) => {
+      text.save(async () => {
         const response = await chai.request(app).put('/data').query({ text: 'Updated text' })
 
         response.should.have.status(400);
@@ -81,7 +81,7 @@ describe('Texts', () => {
     it('it should not DELETE an exist text', () => {
       const text = new Text({ text: 'Text for delete' });
 
-      text.save(async (err, text) => {
+      text.save(async () => {
         const response = await chai.request(app).delete('/data').query({});
 
         response.should.have.status(400);
