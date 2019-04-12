@@ -43,7 +43,11 @@ paths:
       parameters:
         - name: id
           in: query
-          description: Text for updating in db
+          description: Id for updating in db
+          type: string
+        - name: text
+          in: query
+          description: Text for saving in db
           type: string
       responses:
         '201':
