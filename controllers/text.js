@@ -1,5 +1,4 @@
 import Text from '../models/text';
-var log = require('../libs/log')(module);
 
 exports.get = (req, res) => {
   Text.find({}, function (err, texts) {
@@ -55,8 +54,6 @@ const setError = (action, res) => {
     'post': 'Data is empty',
     'db': 'Error in request'
   };
-
-  if (action === 'db') log.error(error[action]); 
-  
+ 
   return res.status(400).json({ error: error[action] });
 }
