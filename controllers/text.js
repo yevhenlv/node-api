@@ -14,10 +14,10 @@ exports.post = (req, res) => {
 
   const newText = new Text({ text: req.query.text });
 
-  newText.save((err) => {
+  newText.save((err, text) => {
     if (err) return setError('db', res);
 
-    res.status(201).json({ message: 'Added' });
+    res.status(201).json({ message: 'Added', text });
   });  
 }
 

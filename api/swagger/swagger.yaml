@@ -89,7 +89,16 @@ definitions:
     properties:
       message:
         type: string
-        description: '' 
+        description: ''
+      text
+        type: object
+        properties:
+          id:
+            type: string
+            description: ''
+          text:
+            type: string
+            description: ''
   ErrorPost:
     title: Request was with error (it can be DB error or Data error)
     type: object

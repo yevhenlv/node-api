@@ -1,17 +1,16 @@
 process.env.NODE_ENV = 'test';
 
-const Text = require('../models/text');
 const mongoose = require('mongoose');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const app = require('../app');
+const app = require('../server');
 
 chai.should();
 chai.use(chaiHttp);
 
 describe('Texts', () => {
   describe('/GET text', () => {
-    it('it should GET all texts', async () => {
+    it('it should return all texts', async () => {
       const response = await chai.request(app).get('/data');
 
       response.should.have.status(200);
@@ -20,8 +19,8 @@ describe('Texts', () => {
   })
 
   describe('/POST text', () => {
-    it('it should POST a new text', async () => {      
-      const data = { text: 'First test text' };
+    it('it should create a new text', async () => {      
+      const data = { text: 'Post test data' };
       const response = await chai.request(app).post('/data').query(data);
 
       response.should.have.status(201);
@@ -29,7 +28,7 @@ describe('Texts', () => {
       response.body.should.have.property('message').eql('Added');
     })
 
-    it('it should not POST a new text', async () => {      
+    it('it should not create a new text without required field', async () => {      
       const data = {};
       const response = await chai.request(app).post('/data').query(data);
 
@@ -40,54 +39,42 @@ describe('Texts', () => {
   })
 
   describe('/PUT text', () => {
-    it('it should UPDATE an exist text', async () => {
-      const text = new Text({ text: 'Text for update' });
+    it('it should update an exist text', async () => {
+      const data = { text: 'Put test data' };
+      const postResp = await chai.request(app).post('/data').query(data);
+      const putResp = await chai.request(app).put('/data').query({ id: postResp.body.text._id.toString(), text: 'Updated text' })
 
-      await text.save(async (err, text) => {
-        const response = await chai.request(app).put('/data').query({ id: text._id.toString(), text: 'Updated text' })
-
-        response.should.have.status(201);
-        response.body.should.be.a('object');
-        response.body.should.have.property('message').eql('Updated');
-      })
+      putResp.should.have.status(201);
+      putResp.body.should.be.a('object');
+      putResp.body.should.have.property('message').eql('Updated');
     })
 
-    it('it should not UPDATE an exist text', () => {
-      const text = new Text({ text: 'Text for update' });
+    it('it should not update an exist text without required field', async () => {
+      const response = await chai.request(app).put('/data').query({ text: 'Updated text' })
 
-      text.save(async () => {
-        const response = await chai.request(app).put('/data').query({ text: 'Updated text' })
-
-        response.should.have.status(400);
-        response.body.should.be.a('object');
-        response.body.should.have.property('error').eql('Can\'t update without id');
-      })
+      response.should.have.status(400);
+      response.body.should.be.a('object');
+      response.body.should.have.property('error').eql('Can\'t update without id');
     })
   })
 
   describe('/DELETE text', () => {
-    it('it should DELETE an exist text', () => {
-      const text = new Text({ text: 'Text for delete' });
+    it('it should delete an exist text', async () => {
+      const data = { text: 'Delete test data' };
+      const postResp = await chai.request(app).post('/data').query(data);
+      const deleteResp = await chai.request(app).delete('/data').query({ id: postResp.body.text._id.toString() });
 
-      text.save(async (err, text) => {
-        const response = await chai.request(app).delete('/data').query({ id: text._id.toString() });
-
-        response.should.have.status(201);
-        response.body.should.be.a('object');
-        response.body.should.have.property('message').eql('Removed');
-      })
+      deleteResp.should.have.status(201);
+      deleteResp.body.should.be.a('object');
+      deleteResp.body.should.have.property('message').eql('Removed');
     })
 
-    it('it should not DELETE an exist text', () => {
-      const text = new Text({ text: 'Text for delete' });
+    it('it should not delete an exist text without required field', async () => {
+      const response = await chai.request(app).delete('/data').query({});
 
-      text.save(async () => {
-        const response = await chai.request(app).delete('/data').query({});
-
-        response.should.have.status(400);
-        response.body.should.be.a('object');
-        response.body.should.have.property('error').eql('Can\'t delete without id');
-      })
+      response.should.have.status(400);
+      response.body.should.be.a('object');
+      response.body.should.have.property('error').eql('Can\'t delete without id');
     })
   })
 
